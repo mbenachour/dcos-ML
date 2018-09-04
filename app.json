@@ -1,22 +1,23 @@
 {
     "volumes": null,
-    "id": "/dcos-101/app1",
+    "id": "mlpregv3",
     "cmd": "python server.py",
     "instances": 1,
     "cpus": 1,
     "mem": 128,
     "disk": 0,
     "gpus": 0,
-    "fetch": [{
-        "uri": "https://raw.githubusercontent.com/joerg84/dcos-101/master/app1/app1.py"
-    }],
+
     "container": {
         "type": "DOCKER",
         "docker": {
-            "image": "mesosphere/dcos-101",
+            "image": "mbenachour/dcos-mlpreg:1",
             "forcePullImage": false,
             "privileged": false,
-            "network": "HOST"
+            "network": "HOST",
+            "portMappings": [
+                { "containerPort": 8088, "hostPort": 8088 }
+            ]
         }
     }
 }
